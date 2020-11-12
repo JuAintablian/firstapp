@@ -1,0 +1,9 @@
+{
+    "informacoes": [
+        { "nome": "Juliana", "profissao": "dev", "mostrarProfissao": false },
+        { "nome": "Carol", "profissao": "psicologa", "mostrarProfissao": true },
+        { "nome": "Joyce", "profissao": "po", "mostrarProfissao": false },
+        { "nome": "Igor", "profissao": "dev", "mostrarProfissao": true },
+        { "nome": "João", "profissao": "feliz", "mostrarProfissao": true }
+      ]
+}

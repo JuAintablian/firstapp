@@ -1,0 +1,5 @@
+<div *ngFor="let item of informacoes">
+    <h1>{{ item.nome }}</h1>
+    <p>Profissao: {{ item.profissao }}</p>
+    <button *ngIf="item.mostrarProfissao" (click)="enviarProfissao(item.profissao)">Enviar</button>
+</div>

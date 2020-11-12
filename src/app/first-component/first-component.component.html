@@ -1,0 +1,5 @@
+<div *ngFor="let item of pessoas">
+    <p [ngClass]="item.corFavorita">{{item.nome}}</p>
+    <p>{{item.idade}}</p>
+    <button (click)="mostrarMensagem(item.nome)">Botao {{item.nome}}</button>
+</div>
