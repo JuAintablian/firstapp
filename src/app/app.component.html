@@ -6,4 +6,6 @@
 <app-second-component
   [informacoes]="listaSecond"
   (nomeProfissao)="mostrarProfissao($event)"
+  (enviarForm)="enviarInformacoes($event)"
+  (deletaInfo)="deleteInformacao($event)"
 ></app-second-component>

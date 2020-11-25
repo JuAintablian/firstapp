@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InformacoesService } from './service/informacoes.service';
 
 @Component({
@@ -13,12 +14,15 @@ export class AppComponent implements OnInit {
   ];
 
   listaSecond;
+  informacoesForm: FormGroup;
+  informacaoSelecionada;
 
-  constructor(private informacoesService: InformacoesService) {}
+  constructor(private informacoesService: InformacoesService, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.listarInformacoes();
   }
+
 
   listarInformacoes() {
     this.informacoesService.read().subscribe( informacoes => {
@@ -32,5 +36,31 @@ export class AppComponent implements OnInit {
 
   mostrarProfissao(event) {
     alert(event);
+  }
+
+  enviarInformacoes(form) {
+    form.mostrarProfissao = form.mostrarProfissao === 'sim' ? true : false;
+
+    if (form.id) {
+      this.informacoesService.update(form).subscribe(() => {
+        alert('informacao atualizada');
+      });
+    } else {
+      this.informacoesService.create(form).subscribe( () => {
+        alert('informação guardada');
+      });
+    }
+  }
+
+  deleteInformacao(id) {
+    this.informacoesService.delete(id).subscribe( () => {
+      alert('informacao deletada');
+    });
+  }
+
+  atualizar(form) {
+    this.informacoesService.update(form).subscribe(() => {
+      alert('informacao atualizada');
+    });
   }
 }

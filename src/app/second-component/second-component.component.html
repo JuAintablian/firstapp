@@ -2,4 +2,13 @@
     <h1>{{ item.nome }}</h1>
     <p>Profissao: {{ item.profissao }}</p>
     <button *ngIf="item.mostrarProfissao" (click)="enviarProfissao(item.profissao)">Enviar</button>
+    <button (click)="deletaInformacao(item.id)">Excluir</button>
+    <button (click)="editaInformacao(item.id)">Editar</button>
 </div>
+
+<form [formGroup]="informacoesForm">
+    <input type="text" formControlName="nome" placeholder="nome"/>
+    <input type="text" formControlName="profissao" placeholder="profissao"/>
+    <input type="text" formControlName="mostrarProfissao" placeholder="mostrar profissao"/>
+    <button (click)="send()">enviar</button>
+</form>
